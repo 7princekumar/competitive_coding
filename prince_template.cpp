@@ -1,19 +1,19 @@
 #include <iostream>
-#include <algorithm>
-#include <math.h>
-#include <ctype.h>
-#include <set>
-#include <stack>
-#include <queue>
-#include <deque>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <string>
 #include <vector>
-#define SORT(a, n) sort(begin(a), begin(a) + n) //nlogn sort
+// #include <algorithm>
+// #include <math.h>
+// #include <ctype.h>
+// #include <set>
+// #include <stack>
+// #include <queue>
+// #include <deque>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// #include <string>
+// #define SORT(a, n) sort(begin(a), begin(a) + n) //nlogn sort
 
-//Title: Minimum Deletions. [CodeChef May Challenge 2018 Div2] [RD19]
+//Title: [CODE: ]
 using namespace std;
 
 
@@ -21,20 +21,33 @@ using namespace std;
 int main() {
     int T; //test cases
     cin >> T;
+    vector<int> results;
 
     for (int i = 1; i < T+1; i++) {
         int N;
-        cin >> N; //N  space-separated integers A1,A2,…,AN.
+        cin >> N;
 
-        for (int j = 0; j < N; j++) {
-            
+        //get the list of elements
+        vector<int> elements;
+        elements.clear();
+        for (int j = 0; j < N; j++){
+            int ele;
+            cin >> ele;
+            elements.push_back(ele);
         }
+
+        //----write from here-----
+
+
+
+
 
     } //for each test case
 
-
-
-
+    //print results
+    for (int i = 0; i < results.size(); i++){
+        cout << results[i] << endl;
+    }
 
     return 0;
 }
