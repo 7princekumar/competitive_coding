@@ -26,17 +26,10 @@ int main()
         }
 
         //----write from here-----
-        vector<int> seqA = elements;
-        vector<int> seqB;
-        for(int j=0; j<N; j++){
-            for(int k=0; k<N; k++){
-                seqB.push_back(seqA[j] + seqA[k]);
-            }
-        }
-
-        int result = seqB[0];
-        for(int j=1; j<seqB.size(); j++){
-            result = result ^ seqB[j];
+        int result = elements[0] * 2;
+        for(int j=1; j<N; j++){
+            int temp = elements[j] * 2;
+            result = result ^ temp;
         }
         
         results.push_back(result);
