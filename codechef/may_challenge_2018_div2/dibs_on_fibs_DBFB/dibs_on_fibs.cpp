@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #define MOD 1000000007
+typedef long long ll;
 
 //Title:Dibs on Fibs [DBFB]
 using namespace std;
@@ -9,27 +10,28 @@ using namespace std;
 int main() {
     int T; //test cases
     cin >> T;
-    vector<int> results;
+    vector<ll> results;
 
     for (int i = 1; i < T + 1; i++) {
         int M,N;
         cin >> M >> N;
 
-        int sum1 = 0;
-        int ele;
+        ll sum1 = 0;
+        ll ele;
         for (int j = 0; j < M; j++) {   
             cin >> ele;
             sum1 = (sum1 %MOD + ele%MOD) %MOD;
         }
 
-        int sum2 = 0;
+        ll sum2 = 0;
         for (int j = 0; j < M; j++) {
             cin >> ele;
             sum2 = (sum2 %MOD + ele%MOD) %MOD;
         }
 
         //do fibonacci using those sums as initial numbers
-        int result = 0, k;
+        ll result = 0;
+        int k;
         vector<int> fib;
         fib.resize(max(2,N));
         fib[0] = sum1;
