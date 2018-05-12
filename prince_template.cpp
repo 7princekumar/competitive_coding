@@ -12,6 +12,7 @@
 // #include <string.h>
 // #include <string>
 // #define SORT(a, n) sort(begin(a), begin(a) + n) //nlogn sort
+// int max= *max_element(v.begin(), v.end());
 
 //Title: [CODE: ]
 using namespace std;
@@ -53,3 +54,18 @@ int main() {
 }
 
 //
+
+/*
+
+cout<<"PRINT VECTOR: ";
+for(int j=0; j<elements.size(); j++){
+    cout<<elements[j]<<" ";
+}
+cout<<endl;
+
+//Position of element in a vector
+vector<int>::iterator it;
+it = find(elements.begin(), elements.end(), element);
+int pos = distance(elements.begin(), it);
+
+*/
