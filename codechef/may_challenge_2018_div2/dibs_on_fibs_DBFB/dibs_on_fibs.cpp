@@ -32,7 +32,7 @@ int main() {
         //do fibonacci using those sums as initial numbers
         ll result = 0;
         int k;
-        vector<int> fib;
+        vector<ll> fib;
         fib.resize(max(2,N));
         fib[0] = sum1;
         fib[1] = sum2;
