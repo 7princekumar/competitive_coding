@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #define MOD 1000000007
 
 //Title:Dibs on Fibs [DBFB]
@@ -14,39 +15,30 @@ int main() {
         int M,N;
         cin >> M >> N;
 
-        //get the list of elements for seqA
-        vector<int> seqA;
-        seqA.clear();
-        for (int j = 0; j < M; j++) {
-            int ele;
+        int sum1 = 0;
+        int ele;
+        for (int j = 0; j < M; j++) {   
             cin >> ele;
-            seqA.push_back(ele);
+            sum1 = (sum1 %MOD + ele%MOD) %MOD;
         }
 
-        //get the list of elements for seqB
-        vector<int> seqB;
-        seqB.clear();
+        int sum2 = 0;
         for (int j = 0; j < M; j++) {
-            int ele;
             cin >> ele;
-            seqB.push_back(ele);
+            sum2 = (sum2 %MOD + ele%MOD) %MOD;
         }
 
-        //----write from here-----
-        int result = 0;
-        for(int j=0; j<M; j++){
-            for(int k=0; k<M; k++){
-                vector<int> fib;
-                fib.resize(N);
-                fib[0] = 0;//padding
-                fib[1] = seqA[j];
-                fib[2] = seqB[k];
-                for(int l=3; l<=N; l++){
-                    fib[l] = fib[l-1] + fib[l-2]; 
-                }
-                result = (result %MOD + fib[N] %MOD) %MOD;    //(a+b)%m = (a%m+b%m)%m.
-            }
-        }
+        //do fibonacci using those sums as initial numbers
+        int result = 0, k;
+        vector<int> fib;
+        fib.resize(max(2,N));
+        fib[0] = sum1;
+        fib[1] = sum2;
+        for(k=2; k<N; k++){
+            fib[k] = ((fib[k-1] %MOD) + (fib[k-2]%MOD)) %MOD;  //(a+b)%m = (a%m+b%m)%m.
+        }   
+        result = ((fib[N-1]) * M) %MOD;
+
         results.push_back(result);
     } //for each test case
 
