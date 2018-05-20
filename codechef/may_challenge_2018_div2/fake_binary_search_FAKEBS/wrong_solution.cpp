@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <stdio.h>
-#include <unordered_map>
 #include <algorithm>
 
 //Title:Fake Binary Search [FAKEBS]
@@ -9,8 +7,7 @@ using namespace std;
 
 int main() {
     int T; //test cases
-    //cin >> T;
-    scanf("%d", &T);
+    cin >> T;
     int N, Q;
     vector< vector<int> > results;
 
@@ -19,24 +16,32 @@ int main() {
 
         //get the list of elements
         vector<int> elements;
-        unordered_map <int,int> e_pos; 
         elements.clear();
         for (int j = 0; j < N; j++){
             int ele;
-            scanf("%d", &ele);
+            cin >> ele;
             elements.push_back(ele);
-            e_pos.insert(make_pair(ele,j)); 
         }
 
-        vector<int> local_results;
-        
-        //for each x
+        //get the list of X
+        vector<int> x_array;
+        x_array.clear();
         for (int j = 0; j < Q; j++){
-            int x;
-            scanf("%d", &x);
+            int ele;
+            cin >> ele;
+            x_array.push_back(ele);
+        }
+        
 
+        //----write from here-----
+        vector<int> local_results;
+        for(int j=0; j< Q; j++){ //for each x
+            //store x
+            int x = x_array[j];
             //find position of x in original array
-            int x_pos = e_pos[x];
+            vector<int>::iterator it;
+            it = find(elements.begin(), elements.end(), x);
+            int x_pos = distance(elements.begin(), it);
 
             vector<int> elements2 = elements;
             //if(fake_binary_search(elements, N, x) )
@@ -86,18 +91,18 @@ int main() {
             } //while
             local_results.push_back(result);
             elements2.clear();
-
-        } //for each x
+        }
         results.push_back(local_results);
         local_results.clear();
+
+
 
     } //for each test case
 
     //print results
     for (int i = 0; i < results.size(); i++){
         for(int j=0; j < Q; j++){
-            //cout << results[i][j] << endl; 
-            printf("%d\n", results[i][j]);
+            cout << results[i][j] << endl; 
         }
         
     }
