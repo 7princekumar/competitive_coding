@@ -21,9 +21,13 @@ void print_i_v(vector<int> &v){
     cout<<endl;
 }
 
-
-
-
+void print_ii_umap(unordered_map<int, int> m){
+    unordered_map<int, int> :: iterator itr;
+    for(itr = m.begin(); itr != m.end(); itr++){
+        cout << "("<< itr->first << ": " << itr->second << ")  ";
+    }
+    cout << endl;
+}
 
 
 
