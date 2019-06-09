@@ -16,10 +16,11 @@ int main(){
   int tc;
   scanf("%d", &tc);
   int a[3];
+  int count = 1;
   while(tc--) {
     scanf("%d %d %d", &a[0], &a[1], &a[2]);
     sort(a, a+3);
-    cout << a[1] << endl;
+    cout << "Case " << count++ << ": "<< a[1] << endl;
   }
   
   return 0;
