@@ -39,15 +39,16 @@ int main(){
     owes = price;
     curr_worth = (1 - rate[0]) * (price + down_payment);
   
-    for(int i=1; i<month; i++) {
-      curr_worth *= 1 - rate[i];
-      owes       -= price/month;
+    for(int i=0; i<month; i++) {
+      curr_worth *= 1 - rate[i+1];
+      owes -= price/month;
       // cout << curr_worth << "   " << owes << endl; //test
       if(curr_worth > owes) {
-        if (i == 1) cout << "1 month" << endl;
-        else cout << i << " months" << endl;
+        if (i == 0) cout << "1 month" << endl;
+        else cout << i + 1 << " months" << endl;
         break;
       }
+      
     }
   }
   return 0;
