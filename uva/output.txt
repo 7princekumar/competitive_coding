@@ -1,6 +1,3 @@
-Case #1:
-www.alibaba.com
-www.bad.com
-acm.university.edu.cn
-Case #2:
-www.alibaba.com
+Case 1: Mile 40
+Case 2: Juice 45
+Case 3: Mile Juice 60
