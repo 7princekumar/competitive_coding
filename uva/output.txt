@@ -1,2 +1,4 @@
-Case 1: 9
-Case 2: 2
+Lumberjacks:
+Ordered
+Unordered
+Ordered
