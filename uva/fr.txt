@@ -1,0 +1,6 @@
+#For Revision
+sNo  site  probelemNo  keyPoint
+--------------------------------------------
+
+1. uva: p12468: Circular rotation using %
+2. uva: p12503: Taking input
