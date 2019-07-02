@@ -1,11 +1,18 @@
-2
-3
-LEFT
-RIGHT
-SAME AS 2
-5
-LEFT
-SAME AS 1
-SAME AS 2
-SAME AS 1
-SAME AS 4
+17
+a 
+b 
+c 
+d 
+e 
+f 
+g 
+h 
+i 
+j 
+k 
+l 
+m
+n 
+o 
+p 
+q
