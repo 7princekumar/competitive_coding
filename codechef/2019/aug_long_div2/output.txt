@@ -1,2 +1,9 @@
-800
-0
+YES
+YES
+NO
+YES
+YES
+NO
+YES
+NO
+YES
