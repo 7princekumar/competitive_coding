@@ -1,10 +1,8 @@
-dave 302
-laura 66
-owen -359
-vick 141
-amr -150
-
-liz -3
-steve -24
-dave 27
-
+success on day 2
+failure on day 2
+failure on day 2
+failure on day 6
+failure on day 67
+success on day 19
+failure on day 19
+failure on day 0
