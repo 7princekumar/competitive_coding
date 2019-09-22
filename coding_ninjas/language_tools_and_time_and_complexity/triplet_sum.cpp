@@ -19,18 +19,12 @@ void print_all(int a, int b, int c){
 // solved using double pointer technique in O(n2)
 void FindTriplet(int arr[], int size, int x) {
     sort(arr, arr + size);
-    for(int i=0; i<=size-3; i++) {
-        int p = i+1;
-        int q = size-1;
-        while(p < q){
-            int local_sum = arr[i] + arr[p] + arr[q];
-            if(local_sum == x){
-                print_all(arr[i], arr[p], arr[q]);
-                p++; q--;
-            }else if(local_sum < x){
-                p++;
-            }else{
-                q--;
+    for(int i=0; i<size-2; i++) {
+        for(int j=i+1; j<size-1; j++) {
+            for(int k=j+1; k<size; k++) {
+                if(arr[i] + arr[j] + arr[k] == x){
+                    print_all(arr[i], arr[j], arr[k]);
+                }
             }
         }
     }
