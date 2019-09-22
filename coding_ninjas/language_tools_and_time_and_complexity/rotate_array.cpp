@@ -2,19 +2,21 @@
 // size - size of array
 // d - array to be rotated by d elements
 
-void Rotate(int arr[], int d, int size) {
-    int new_size = 2 * size;
-    int* a = new int[new_size];
-    for(int i=0; i<size; i++) {
-        a[i] = arr[i];
+void swap(int* a, int* b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void reverse(int arr[], int n){
+    int p = 0, q = n-1;
+    while(p < q){
+        swap(&arr[p++], &arr[q--]);
     }
-    for(int i=0; i<size; i++) {
-        a[size +i] = arr[i];
-    }
-    int pos = 0;
-    for(int i=d; i<d+size; i++) {
-        arr[pos++] = a[i];
-    }
-    delete[] a;
-    a = NULL;
+}
+
+void Rotate(int arr[], int d, int size) {  // 1 2, 3 4 5 6
+    reverse(arr, size);                    // 6 5 4 3, 2 1        
+    reverse(arr, size - d);                // 3 4 5 6, 2 1
+    reverse(arr + size - d, d);            // 3 4 5 6, 1 2
 }	
