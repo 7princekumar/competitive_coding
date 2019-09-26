@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 
-bool placing_possible(vector<ll>& stalls, ll gap, ll c) {
+bool is_possible(vector<ll>& stalls, ll gap, ll c) {
     bool possible = true;
     int ccp = 0; // curr_cow_pos
     c--; //cow0 at 0th position
@@ -16,14 +16,19 @@ bool placing_possible(vector<ll>& stalls, ll gap, ll c) {
 }
 
 //binary search on gaps
-int bs(vector<ll>& stalls, ll start_gap, ll end_gap, ll mid_gap, ll c) {
-    if(start_gap > end_gap) return mid_gap;
-    ll temp = (start_gap + end_gap) / 2;
-    if(placing_possible(stalls, temp, c)){
-        return bs(stalls, temp +1, end_gap, temp, c);
-    }else{
-        return bs(stalls, start_gap, temp -1, temp, c);
+int bs(vector<ll>& stalls, ll start, ll end, ll c) {
+    ll ans = -1;
+    ll mid;
+    while(start <= end) {
+        mid = start + (end - start) / 2;
+        if(is_possible(stalls, mid, c)){
+            ans = mid;
+            start = mid + 1;
+        }else{
+            end = mid - 1;
+        }
     }
+    return ans;
 }
 
 int main() {
@@ -37,10 +42,11 @@ int main() {
             stalls.push_back(ele);
         }
         sort(stalls.begin(), stalls.end());
-        // 1 <= gap <= stalls[n-1] - stalls[0]
-        ll mid_gap = (1 + (stalls[n-1] - stalls[0])) / 2;
-        ll gap = bs(stalls, 1, stalls[n-1] - stalls[0], mid_gap, c);
-        cout << gap << endl;
+        ll start = 0;
+        ll end = stalls[n-1] - stalls[0];
+        
+        ll ans = bs(stalls, start, end, c);
+        cout << ans << endl;
     }
     return 0;
 }
