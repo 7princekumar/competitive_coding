@@ -20,9 +20,8 @@ void merge(int* arr, int sp, int mp, int ep){
 	while(j <= ep) merged[k++] = arr[j++];
 	//copy sorted elements back to their original array btw sp and ep
 	k = 0;
-	while(sp <= ep){
-		arr[sp++] = merged[k++];
-	}
+	while(sp <= ep) arr[sp++] = merged[k++];
+	
 	delete[] merged;
 	merged = NULL;
 }
