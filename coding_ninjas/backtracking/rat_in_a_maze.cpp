@@ -2,13 +2,6 @@
 using namespace std;
 
 #define N 20
-// directions
-enum dir {
-    UP,
-    RIGHT,
-    DOWN,
-    LEFT
-};
 #define VISITED 1
 #define UNVISITED 0
 #define WALL 0
@@ -28,18 +21,16 @@ void rat_in_maze_helper(int m[][N], int n, int sol[][N], int row, int col) {
     if(row == n-1 && col == n-1) {
         sol[row][col] = VISITED;
         print(sol, n);
-    }
-    
-    for(int dir=UP; dir<=LEFT; dir++) {
-        sol[row][col] = VISITED;
-        switch(dir){
-            case UP:    rat_in_maze_helper(m, n, sol, row - 1, col); break;
-            case RIGHT: rat_in_maze_helper(m, n, sol, row, col + 1); break;
-            case DOWN:  rat_in_maze_helper(m, n, sol, row + 1, col); break;
-            case LEFT:  rat_in_maze_helper(m, n, sol, row, col - 1); break;
-        }
         sol[row][col] = UNVISITED;
+        return;
     }
+
+    sol[row][col] = VISITED;
+    rat_in_maze_helper(m, n, sol, row - 1, col); //UP
+    rat_in_maze_helper(m, n, sol, row, col + 1); //RIGHT
+    rat_in_maze_helper(m, n, sol, row + 1, col); //DOWN
+    rat_in_maze_helper(m, n, sol, row, col - 1); //LEFT
+    sol[row][col] = UNVISITED;
 }
 
 void ratInAMaze(int maze[][N], int n) {
