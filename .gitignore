@@ -4,5 +4,9 @@
 # Unignore all with extensions
 !*.*
 
+#Ignore
+a.out
+.DS_Store
+
 # Unignore all dirs
 !*/
