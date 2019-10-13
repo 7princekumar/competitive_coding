@@ -3,7 +3,7 @@ using namespace std;
 
 #define MAX 500
 
-int multiply(int x, int res[MAX], int res_s) {  //593 * 4 => [3][9][5] * 5;
+int multiply(int x, int res[MAX], int res_s) {  //593 * 4 => [3][9][5] * 4;
     int prod, carry = 0;
     for(int i=0; i<res_s; i++) {
         prod   = res[i] * x + carry;
